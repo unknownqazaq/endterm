@@ -1,17 +1,25 @@
 # Function to convert letter grades to points
 def convert_letter_to_points(*letters):
     grade_points = {
-        'A+': 4.3, 'A': 4.0, 'A-': 3.7, 'B+': 3.3, 'B': 3.0, 'B-': 2.7,
-        'C+': 2.3, 'C': 2.0, 'C-': 1.7, 'D+': 1.3, 'D': 1.0, 'D-': 0.7
+        'A+': 4.3,
+        'A': 4.0,
+        'A-': 3.7,
+        'B+': 3.3,
+        'B': 3.0,
+        'B-': 2.7,
+        'C+': 2.3,
+        'C': 2.0,
+        'C-': 1.7,
+        'D+': 1.3,
+        'D': 1.0,
+        'D-': 0.7
     }
     return [grade_points[letter] for letter in letters]
 
-# Function to convert percentage scores to points
 def convert_percentage_to_points(*percentages):
     letter_grades = convert_letter_to_points('A+', 'D', 'C-', 'A-')
     return [letter_grades[int((percentage - 45) / 5)] for percentage in percentages]
 
-# Function to calculate overall GPA
 def calculate_gpa(*args):
     points = args[::2]
     credits = args[1::2]
@@ -59,9 +67,15 @@ class Student:
     def show_status(self):
         print(f"{self.name}'s Status: {self.status}")
 
-# Usage example
 student_data = {'math': {'score': 4.3, 'credits': 4}, 'chemistry': {'score': 4.3, 'credits': 3},
                 'english': {'score': 4.3, 'credits': 4}}
 student = Student("Rakhmetuly Zhanserik", 3, student_data)
 student.show_gpa()
 student.show_status()
+
+
+# API is generally a system with the help of which we can further interact with each other several services from different programs.
+# It turns out that we can link any part of any program, and use it in our program, displaying it as desired.
+# For example, I have a mini project on which I pulled in the video API to YouTube, and thus I pulled in the video API and then further
+# visually displayed it.
+# The API will make requests to the server of the program from which we pulled it
